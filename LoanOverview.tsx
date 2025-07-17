@@ -11,8 +11,8 @@ import {
   Info,
   AlertTriangle
 } from 'lucide-react';
-import { useLoan } from '../context/LoanContext';
-import { mockApi } from '../services/mockApi';
+import { useLoan } from './src/context/LoanContext';
+import { mockApi } from './src/services/mockApi';
 
 interface LoanData {
   outstandingBalance: string;

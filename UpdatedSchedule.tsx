@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CheckCircle } from 'lucide-react';
-import { useLoan } from '../context/LoanContext';
-import Layout from '../components/layout/Layout';
-import StickyCTAButton from '../components/common/StickyCTAButton';
+import { useLoan } from './src/context/LoanContext';
+import Layout from './src/components/layout/Layout';
+import StickyCTAButton from './src/components/common/StickyCTAButton';
 
 const UpdatedSchedule: React.FC = () => {
   const { loanId } = useParams<{ loanId: string }>();

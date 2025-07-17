@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Fingerprint, Shield } from 'lucide-react';
-import { useLoan } from '../context/LoanContext';
-import { mockApi } from '../services/mockApi';
-import Button from '../components/common/Button';
+import { useLoan } from './src/context/LoanContext';
+import { mockApi } from './src/services/mockApi';
+import Button from './src/components/common/Button';
 
 const Login: React.FC = () => {
   const [pin, setPin] = useState('');
