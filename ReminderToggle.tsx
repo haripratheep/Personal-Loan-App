@@ -29,8 +29,7 @@ const ReminderToggle: React.FC<ReminderToggleProps> = ({
           />
           <div className={`w-12 h-6 rounded-full transition-colors duration-200 ${
             checked ? '' : ''
-          }`}>
-            style={{ backgroundColor: checked ? '#3D3D3D' : '#E6E6E6' }}>
+          }`} style={{ backgroundColor: checked ? '#3D3D3D' : '#E6E6E6' }}>
             <div className={`w-5 h-5 bg-white-custom rounded-full shadow-md transition-transform duration-200 ${
               checked ? 'translate-x-6' : 'translate-x-0.5'
             } mt-0.5`} style={{ backgroundColor: '#FFFFFF' }} />
