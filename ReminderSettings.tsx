@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Clock, CheckCircle } from 'lucide-react';
 import { useLoan } from './src/context/LoanContext';
-import Layout from './src/components/layout/Layout';
-import ReminderToggle from './src/components/common/ReminderToggle';
-import StickyCTAButton from './src/components/common/StickyCTAButton';
+import Layout from './Layout';
+import ReminderToggle from './ReminderToggle';
+import StickyCTAButton from './StickyCTAButton';
 
 const ReminderSettings: React.FC = () => {
   const { loanId } = useParams<{ loanId: string }>();

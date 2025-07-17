@@ -3,10 +3,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, Home, FileText, CreditCard, HelpCircle, User, AlertTriangle } from 'lucide-react';
 import { useLoan } from './src/context/LoanContext';
 import { mockApi } from './src/services/mockApi';
-import SliderBlock from './src/components/common/SliderBlock';
-import GraphChart from './src/components/common/GraphChart';
-import StickyCTAButton from './src/components/common/StickyCTAButton';
-import ConfirmModal from './src/components/common/ConfirmModal';
+import SliderBlock from './SliderBlock';
+import GraphChart from './GraphChart';
+import StickyCTAButton from './StickyCTAButton';
+import ConfirmModal from './ConfirmModal';
 
 interface PaymentScheduleItem {
   date: string;

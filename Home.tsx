@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Banknote, CalendarDays, History, AlertCircle, Home as HomeIcon, User } from 'lucide-react';
 import { useLoan } from './src/context/LoanContext';
 import { mockApi } from './src/services/mockApi';
-import Layout from './src/components/layout/Layout';
-import Button from './src/components/common/Button';
+import Layout from './Layout';
+import Button from './Button';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();

@@ -3,11 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { AlertTriangle } from 'lucide-react';
 import { useLoan } from './src/context/LoanContext';
 import { mockApi } from './src/services/mockApi';
-import Layout from './src/components/layout/Layout';
-import SliderBlock from './src/components/common/SliderBlock';
-import GraphChart from './src/components/common/GraphChart';
-import StickyCTAButton from './src/components/common/StickyCTAButton';
-import ConfirmModal from './src/components/common/ConfirmModal';
+import Layout from './Layout';
+import SliderBlock from './SliderBlock';
+import GraphChart from './GraphChart';
+import StickyCTAButton from './StickyCTAButton';
+import ConfirmModal from './ConfirmModal';
 
 const Simulator: React.FC = () => {
   const { loanId } = useParams<{ loanId: string }>();
