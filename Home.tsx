@@ -124,6 +124,10 @@ const Home: React.FC = () => {
                   Repayment Planner
                 </button>
               </div>
+              <div className="flex items-center text-sm text-black-custom mt-2">
+                <CalendarDays className="w-4 h-4 mr-2" />
+                Next EMI due on {new Date(loan.nextDueDate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+              </div>
             </div>
           ))}
         </div>
@@ -136,18 +140,6 @@ const Home: React.FC = () => {
           >
             My Loans
           </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Home;
-                <CalendarDays className="w-4 h-4 mr-2" />
-                Next EMI due on {new Date(loan.nextDueDate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
-              </div>
-            </div>
-          ))}
         </div>
 
         {/* Documentation Reminder */}
