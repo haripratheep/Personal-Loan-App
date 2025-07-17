@@ -48,25 +48,25 @@ const UpdatedSchedule: React.FC = () => {
     <Layout title="Payment Schedule">
       <div className="p-4 bg-bg-light min-h-screen">
         {/* Success Message */}
-        <div className="bg-card-grey border border-card-grey rounded-lg p-4 mb-6">
+        <div className="rounded-lg p-4 mb-6" style={{ backgroundColor: '#E6E6E6', border: '1px solid #E6E6E6' }}>
           <div className="flex items-center">
-            <CheckCircle className="w-6 h-6 text-text-primary mr-3" />
+            <CheckCircle className="w-6 h-6 mr-3" style={{ color: '#231917' }} />
             <div>
-              <h3 className="font-semibold text-text-primary">Plan Updated Successfully</h3>
-              <p className="text-text-primary text-sm">Your simulation has been applied to your loan plan</p>
+              <h3 className="font-semibold" style={{ color: '#231917' }}>Plan Updated Successfully</h3>
+              <p className="text-sm" style={{ color: '#231917' }}>Your simulation has been applied to your loan plan</p>
             </div>
           </div>
         </div>
 
         {/* Updated Schedule */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-text-primary mb-4">Updated EMI Schedule</h3>
+          <h3 className="text-lg font-semibold mb-4" style={{ color: '#231917' }}>Updated EMI Schedule</h3>
           {state.emiSchedule.map((item) => (
-            <div key={item.id} className="bg-white-custom rounded-lg p-4 shadow-sm border border-card-grey">
+            <div key={item.id} className="rounded-lg p-4 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E6E6E6' }}>
               <div className="flex justify-between items-start mb-3">
                 <div>
-                  <h4 className="font-semibold text-text-primary">{item.month}</h4>
-                  <p className="text-sm text-black-custom">Due: {new Date(item.dueDate).toLocaleDateString('en-IN')}</p>
+                  <h4 className="font-semibold" style={{ color: '#231917' }}>{item.month}</h4>
+                  <p className="text-sm" style={{ color: '#3D3D3D' }}>Due: {new Date(item.dueDate).toLocaleDateString('en-IN')}</p>
                 </div>
                 <span className={`text-xs px-2 py-1 rounded-full ${getStatusBadge(item.status)}`}>
                   {getStatusText(item.status)}
@@ -75,20 +75,20 @@ const UpdatedSchedule: React.FC = () => {
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-sm text-black-custom">EMI Amount</p>
-                  <p className="font-semibold text-text-primary">{formatCurrency(item.emi)}</p>
+                  <p className="text-sm" style={{ color: '#3D3D3D' }}>EMI Amount</p>
+                  <p className="font-semibold" style={{ color: '#231917' }}>{formatCurrency(item.emi)}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-black-custom">Principal</p>
-                  <p className="font-semibold text-text-primary">{formatCurrency(item.principal)}</p>
+                  <p className="text-sm" style={{ color: '#3D3D3D' }}>Principal</p>
+                  <p className="font-semibold" style={{ color: '#231917' }}>{formatCurrency(item.principal)}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-black-custom">Interest</p>
-                  <p className="font-semibold text-text-primary">{formatCurrency(item.interest)}</p>
+                  <p className="text-sm" style={{ color: '#3D3D3D' }}>Interest</p>
+                  <p className="font-semibold" style={{ color: '#231917' }}>{formatCurrency(item.interest)}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-black-custom">Balance</p>
-                  <p className="font-semibold text-text-primary">{formatCurrency(item.balance)}</p>
+                  <p className="text-sm" style={{ color: '#3D3D3D' }}>Balance</p>
+                  <p className="font-semibold" style={{ color: '#231917' }}>{formatCurrency(item.balance)}</p>
                 </div>
               </div>
             </div>

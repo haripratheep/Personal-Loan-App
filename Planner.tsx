@@ -221,40 +221,9 @@ const Planner: React.FC = () => {
       <div className="flex-1 p-4">
         {activeTab === 'schedule' && (
           <>
-            {/* Loan Summary Card */}
-            <div className="rounded-lg p-4 mb-6" style={{ backgroundColor: '#E6E6E6' }}>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <div style={{ color: '#3D3D3D' }} className="text-sm mb-1">Loan Amount</div>
-                  <div style={{ color: '#231917' }} className="font-semibold text-lg">
-                    {formatCurrency(loanData.amount)}
-                  </div>
-                </div>
-                <div>
-                  <div style={{ color: '#3D3D3D' }} className="text-sm mb-1">Interest Rate</div>
-                  <div style={{ color: '#231917' }} className="font-semibold text-lg">
-                    {loanData.interestRate}% p.a.
-                  </div>
-                </div>
-                <div>
-                  <div style={{ color: '#3D3D3D' }} className="text-sm mb-1">Tenure</div>
-                  <div style={{ color: '#231917' }} className="font-semibold text-lg">
-                    {loanData.tenure} months{' '}
-                    <span style={{ color: '#3D3D3D' }} className="text-sm font-normal">(remaining)</span>
-                  </div>
-                </div>
-                <div>
-                  <div style={{ color: '#3D3D3D' }} className="text-sm mb-1">EMI Amount</div>
-                  <div style={{ color: '#231917' }} className="font-semibold text-lg">
-                    {formatCurrency(loanData.emiAmount)}/month
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Payment Schedule */}
+            {/* EMI Breakdown Schedule */}
             <div className="mb-6">
-              <h2 className="text-lg font-semibold mb-4" style={{ color: '#231917' }}>Payment Schedule</h2>
+              <h2 className="text-lg font-semibold mb-4" style={{ color: '#231917' }}>EMI Breakdown Schedule</h2>
               {state.emiSchedule.map(renderPaymentItem)}
             </div>
           </>
@@ -264,7 +233,7 @@ const Planner: React.FC = () => {
           <div className="space-y-6">
             {/* Warning Banner */}
             {showWarning && (
-              <div className="border rounded-lg p-4 animate-fade-in" style={{ backgroundColor: '#E6E6E6', borderColor: '#E6E6E6' }}>
+              <div className="rounded-lg p-4 animate-fade-in" style={{ backgroundColor: '#E6E6E6' }}>
                 <div className="flex items-start">
                   <AlertTriangle className="w-5 h-5 mt-0.5 mr-3 flex-shrink-0" style={{ color: '#231917' }} />
                   <div>
@@ -275,7 +244,7 @@ const Planner: React.FC = () => {
               </div>
             )}
 
-            {/* Sliders */}
+            {/* Simulator Controls */}
             <div className="space-y-4">
               <SliderBlock
                 label="Extra Payment"
@@ -300,7 +269,7 @@ const Planner: React.FC = () => {
               />
             </div>
 
-            {/* Graph */}
+            {/* Graph Area */}
             <GraphChart simulationInput={state.simulationInput} />
 
             {/* Results Summary */}
@@ -309,14 +278,14 @@ const Planner: React.FC = () => {
                 <h3 className="text-lg font-semibold mb-4" style={{ color: '#231917' }}>Simulation Results</h3>
                 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-3 rounded-lg" style={{ backgroundColor: '#E6E6E6' }}>
+                  <div className="text-center p-4 rounded-lg" style={{ backgroundColor: '#E6E6E6' }}>
                     <p className="text-sm mb-1" style={{ color: '#3D3D3D' }}>Interest Saved</p>
                     <p className="text-xl font-bold" style={{ color: '#231917' }}>
                       {formatCurrency(state.simulationResult.interestSaved)}
                     </p>
                   </div>
                   
-                  <div className="text-center p-3 rounded-lg" style={{ backgroundColor: '#E6E6E6' }}>
+                  <div className="text-center p-4 rounded-lg" style={{ backgroundColor: '#E6E6E6' }}>
                     <p className="text-sm mb-1" style={{ color: '#3D3D3D' }}>Term Reduced</p>
                     <p className="text-xl font-bold" style={{ color: '#231917' }}>
                       {state.simulationResult.termReduction} months

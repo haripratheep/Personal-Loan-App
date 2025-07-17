@@ -185,144 +185,77 @@ const LoanOverview: React.FC = () => {
       </div>
 
       {/* Top Stats */}
-      <div className="px-4 mb-6">
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <div>
-            <p className="text-sm mb-1" style={{ color: '#3D3D3D' }}>Outstanding Balance</p>
-            <p className="text-2xl font-bold" style={{ color: '#231917' }}>
-              {loanData.outstandingBalance}
-            </p>
-          </div>
-          <div>
-            <p className="text-sm mb-1" style={{ color: '#3D3D3D' }}>Next EMI Due</p>
-            <p className="text-2xl font-bold" style={{ color: '#231917' }}>
-              {loanData.nextEmiDue}
-            </p>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <p className="text-sm mb-1" style={{ color: '#3D3D3D' }}>{loanData.loanType}</p>
-            <p className="font-medium" style={{ color: '#231917' }}>
+      {/* Loan Summary Cards */}
+      <div className="px-4 space-y-4">
+        {/* Current Loan Card */}
+        <div className="rounded-lg p-4" style={{ backgroundColor: '#E6E6E6' }}>
+          <div className="mb-4">
+            <h2 className="font-bold text-lg" style={{ color: '#231917' }}>
+              {loan.type} - {loan.bank}
+            </h2>
+            <p className="text-sm" style={{ color: '#3D3D3D' }}>
               Loan ID: {loanData.loanId}
             </p>
           </div>
-          <div>
-            <p className="text-sm mb-1" style={{ color: '#3D3D3D' }}>Interest Rate</p>
-            <p className="font-medium" style={{ color: '#231917' }}>
-              {loanData.interestRate}
-            </p>
+          
+          <div className="space-y-3">
+            <div className="flex justify-between">
+              <span style={{ color: '#3D3D3D' }}>Outstanding Balance</span>
+              <span className="font-bold text-lg" style={{ color: '#231917' }}>
+                {loanData.outstandingBalance}
+              </span>
+            </div>
+            
+            <div className="flex justify-between">
+              <span style={{ color: '#3D3D3D' }}>Interest Rate</span>
+              <span className="font-medium" style={{ color: '#231917' }}>
+                {loanData.interestRate}
+              </span>
+            </div>
+            
+            <div className="flex justify-between">
+              <span style={{ color: '#3D3D3D' }}>Next Due</span>
+              <span className="font-medium" style={{ color: '#231917' }}>
+                {loanData.nextEmiDate}
+              </span>
+            </div>
+            
+            <div className="flex justify-between">
+              <span style={{ color: '#3D3D3D' }}>Total Principal</span>
+              <span className="font-medium" style={{ color: '#231917' }}>
+                {loanData.totalPrincipal}
+              </span>
+            </div>
+            
+            <div className="flex justify-between">
+              <span style={{ color: '#3D3D3D' }}>Paid EMI count</span>
+              <span className="font-medium" style={{ color: '#231917' }}>
+                {loanData.emisPaid} of {loanData.totalEmis}
+              </span>
+            </div>
+          </div>
+          
+          <div className="mt-4 flex justify-end">
+            <button 
+              onClick={handleRepaymentPlanner}
+              className="px-6 py-2 rounded-lg font-medium"
+              style={{ backgroundColor: '#3D3D3D', color: '#FFFFFF' }}
+            >
+              Repayment Planner
+            </button>
           </div>
         </div>
+        
+        {/* Additional loan cards would go here */}
       </div>
-
-      {/* EMI Info */}
-      <div className="px-4 mb-6">
-        <p className="font-medium mb-2" style={{ color: '#231917' }}>
-          EMI on {loanData.nextEmiDate}
-        </p>
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-sm" style={{ color: '#3D3D3D' }}>EMIs Paid</span>
-          <span className="font-medium" style={{ color: '#231917' }}>
-            {loanData.emisPaid}/{loanData.totalEmis}
-          </span>
-        </div>
-        <div className="w-full bg-gray-300 rounded-full h-2">
-          <div 
-            className="bg-black h-2 rounded-full" 
-            style={{ width: `${(parseInt(loanData.emisPaid) / parseInt(loanData.totalEmis)) * 100}%` }}
-          ></div>
-        </div>
-      </div>
-
-      {/* Tabs */}
-      <div className="px-4 mb-6">
-        <div className="flex space-x-8 border-b" style={{ borderColor: '#E6E6E6' }}>
-          <TabButton 
-            label="Overview" 
-            isActive={activeTab === 'overview'} 
-            onClick={() => setActiveTab('overview')} 
-          />
-          <TabButton 
-            label="Statements" 
-            isActive={activeTab === 'statements'} 
-            onClick={() => setActiveTab('statements')} 
-          />
-          <TabButton 
-            label="Calendar" 
-            isActive={activeTab === 'calendar'} 
-            onClick={() => setActiveTab('calendar')} 
-          />
-        </div>
-      </div>
-
-      {/* Action Buttons Grid */}
-      <div className="px-4 mb-6">
-        <div className="grid grid-cols-2 gap-4">
-          <ActionButton 
-            icon={<CreditCard className="w-6 h-6" />}
-            label="Manage Repayment"
-          />
-          <ActionButton 
-            icon={<Grid3x3 className="w-6 h-6" />}
-            label="Repayment Planner"
-            onClick={handleRepaymentPlanner}
-          />
-          <ActionButton 
-            icon={<Calendar className="w-6 h-6" />}
-            label="Adjust EMI Date"
-          />
-          <ActionButton 
-            icon={<CalendarDays className="w-6 h-6" />}
-            label="EMI Calendar"
-          />
-          <ActionButton 
-            icon={<FileText className="w-6 h-6" />}
-            label="Statements"
-          />
-          <ActionButton 
-            icon={<Bell className="w-6 h-6" />}
-            label="EMI Reminders"
-          />
-        </div>
-      </div>
-
-      {/* Summary Insights */}
-      <div className="px-4 mb-6">
-        <h2 className="text-lg font-medium mb-4" style={{ color: '#231917' }}>
-          Summary Insights
-        </h2>
-        <div className="space-y-0">
-          <SummaryRow label="Total Principal" value={loanData.totalPrincipal} />
-          <SummaryRow label="Outstanding Amount" value={loanData.outstandingAmount} />
-          <SummaryRow label="EMIs Paid" value={`${loanData.emisPaid} of ${loanData.totalEmis}`} />
-          <SummaryRow label="Next EMI" value={`${loanData.nextEmiAmount} on ${loanData.nextEmiDate}`} />
-        </div>
-      </div>
-
-      {/* Notifications */}
-      <div className="px-4 mb-6">
-        <NotificationCard 
-          icon={<Info className="w-5 h-5" />}
-          message="Switch to Auto-Debit to avoid missed payments"
-          type="info"
-        />
-        <NotificationCard 
-          icon={<AlertTriangle className="w-5 h-5" />}
-          message="Your next EMI is due in 5 days"
-          type="warning"
-        />
-      </div>
-
-      {/* View Disbursal Details Button */}
-      <div className="px-4 mb-6">
+      
+      {/* My Loans Button */}
+      <div className="px-4 mt-6">
         <button 
-          className="w-full py-3 px-4 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors"
-          style={{ backgroundColor: '#FFFFFF', color: '#231917' }}
+          className="w-full py-3 px-4 rounded-lg font-medium"
+          style={{ backgroundColor: '#3D3D3D', color: '#FFFFFF' }}
         >
-          <AlertTriangle className="w-5 h-5 mr-2" />
-          <span className="font-medium">View Disbursal Details</span>
+          My Loans
         </button>
       </div>
 

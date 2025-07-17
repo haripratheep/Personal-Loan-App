@@ -64,7 +64,10 @@ const Home: React.FC = () => {
   return (
     <div className="bg-white-custom min-h-screen font-roboto">
       <div className="p-4 space-y-4">
-        <h1 className="text-xl font-bold text-text-primary">My Loans</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-xl font-bold" style={{ color: '#231917' }}>My Loans</h1>
+          <div className="text-sm" style={{ color: '#231917' }}>9:41</div>
+        </div>
 
         {/* Quick Action Buttons */}
         <div className="flex space-x-3">
@@ -90,26 +93,56 @@ const Home: React.FC = () => {
             <div 
               key={loan.id}
               onClick={() => handleLoanClick(loan.id)}
-              className="bg-card-grey rounded-xl p-4 cursor-pointer hover:opacity-80 transition-opacity"
+              className="rounded-xl p-4 cursor-pointer hover:opacity-80 transition-opacity"
+              style={{ backgroundColor: '#E6E6E6' }}
             >
               <div className="flex justify-between items-start mb-2">
                 <div>
-                  <p className="font-bold text-text-primary">{loan.type}</p>
-                  <p className="text-sm text-black-custom">{loan.bank}</p>
+                  <p className="font-bold" style={{ color: '#231917' }}>{loan.type} - {loan.bank}</p>
                 </div>
-                <span className={`text-xs px-2 py-1 rounded-full font-medium ${getStatusBadge(loan.status)}`}>
+                <span className="text-xs px-2 py-1 rounded-full font-medium" style={{ backgroundColor: '#E6E6E6', color: '#231917' }}>
                   {loan.status === 'active' ? 'Active' : loan.status === 'overdue' ? 'Overdue' : loan.status}
                 </span>
               </div>
-              <div className="flex justify-between text-black-custom text-sm mb-1">
+              <div className="flex justify-between text-sm mb-2">
                 <span>Outstanding Balance</span>
-                <span className="font-bold text-lg text-text-primary">{formatCurrency(loan.currentBalance)}</span>
+                <span className="font-bold text-lg" style={{ color: '#231917' }}>{formatCurrency(loan.currentBalance)}</span>
               </div>
-              <div className="flex justify-between text-black-custom text-sm mb-1">
+              <div className="flex justify-between text-sm mb-2">
                 <span>Interest Rate</span>
                 <span className="font-medium">{loan.interestRate}% p.a.</span>
               </div>
-              <div className="flex items-center text-black-custom text-sm mt-2">
+              <div className="flex justify-between text-sm mb-4">
+                <span>Next Due</span>
+                <span>{new Date(loan.nextDueDate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
+              </div>
+              <div className="flex justify-end">
+                <button 
+                  className="px-4 py-2 rounded-lg text-sm font-medium"
+                  style={{ backgroundColor: '#3D3D3D', color: '#FFFFFF' }}
+                >
+                  Repayment Planner
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* My Loans Button */}
+        <div className="mt-6">
+          <button 
+            className="w-full py-3 px-4 rounded-lg font-medium"
+            style={{ backgroundColor: '#3D3D3D', color: '#FFFFFF' }}
+          >
+            My Loans
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
                 <CalendarDays className="w-4 h-4 mr-2" />
                 Next EMI due on {new Date(loan.nextDueDate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
               </div>

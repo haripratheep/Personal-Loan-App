@@ -69,12 +69,12 @@ const GraphChart: React.FC<GraphChartProps> = ({ simulationInput }) => {
         <h3 className="text-lg font-semibold text-text-primary">Interest Impact</h3>
         <div className="flex items-center space-x-4 text-sm">
           <div className="flex items-center">
-            <div className="w-3 h-3 bg-black-custom rounded-full mr-2"></div>
-            <span className="text-black-custom">Current Plan</span>
+            <div className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: '#808080' }}></div>
+            <span style={{ color: '#3D3D3D' }}>Current Plan</span>
           </div>
           <div className="flex items-center">
-            <div className="w-3 h-3 bg-text-primary rounded-full mr-2"></div>
-            <span className="text-black-custom">Simulated Plan</span>
+            <div className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: '#0066CC' }}></div>
+            <span style={{ color: '#3D3D3D' }}>Simulated Plan</span>
           </div>
         </div>
       </div>
@@ -106,26 +106,26 @@ const GraphChart: React.FC<GraphChartProps> = ({ simulationInput }) => {
             <Line
               type="monotone"
               dataKey="currentPlan"
-              stroke="#3D3D3D"
+              stroke="#808080"
               strokeWidth={2}
               dot={false}
-              activeDot={{ r: 4, fill: '#3D3D3D' }}
+              activeDot={{ r: 4, fill: '#808080' }}
             />
             <Line
               type="monotone"
               dataKey="simulatedPlan"
-              stroke="#231917"
+              stroke="#0066CC"
               strokeWidth={2}
               dot={false}
-              activeDot={{ r: 4, fill: '#231917' }}
+              activeDot={{ r: 4, fill: '#0066CC' }}
             />
           </LineChart>
         </ResponsiveContainer>
       </div>
       
       {hasWarning && (
-        <div className="mt-4 p-3 bg-card-grey border border-card-grey rounded-lg">
-          <p className="text-sm text-text-primary">
+        <div className="mt-4 p-3 rounded-lg" style={{ backgroundColor: '#E6E6E6' }}>
+          <p className="text-sm" style={{ color: '#231917' }}>
             ⚠️ Warning: Significant interest increase detected with current delay settings
           </p>
         </div>

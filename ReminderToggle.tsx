@@ -16,8 +16,8 @@ const ReminderToggle: React.FC<ReminderToggleProps> = ({
   return (
     <div className="flex items-center justify-between p-4">
       <div className="flex-1">
-        <h3 className="font-medium text-text-primary">{label}</h3>
-        <p className="text-sm text-black-custom">{description}</p>
+        <h3 className="font-medium" style={{ color: '#231917' }}>{label}</h3>
+        <p className="text-sm" style={{ color: '#3D3D3D' }}>{description}</p>
       </div>
       <div className="ml-4">
         <label className="relative inline-flex items-center cursor-pointer">
@@ -28,11 +28,12 @@ const ReminderToggle: React.FC<ReminderToggleProps> = ({
             onChange={(e) => onChange(e.target.checked)}
           />
           <div className={`w-12 h-6 rounded-full transition-colors duration-200 ${
-            checked ? 'bg-black-custom' : 'bg-card-grey'
+            checked ? '' : ''
           }`}>
+            style={{ backgroundColor: checked ? '#3D3D3D' : '#E6E6E6' }}>
             <div className={`w-5 h-5 bg-white-custom rounded-full shadow-md transition-transform duration-200 ${
               checked ? 'translate-x-6' : 'translate-x-0.5'
-            } mt-0.5`} />
+            } mt-0.5`} style={{ backgroundColor: '#FFFFFF' }} />
           </div>
         </label>
       </div>
