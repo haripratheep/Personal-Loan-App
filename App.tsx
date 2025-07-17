@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { LoanProvider } from './context/LoanContext';
-import Login from './pages/Login';
-import Home from './pages/Home';
-import LoanOverview from './pages/LoanOverview';
-import Planner from './pages/Planner';
-import Simulator from './pages/Simulator';
-import UpdatedSchedule from './pages/UpdatedSchedule';
-import ReminderSettings from './pages/ReminderSettings';
+import { LoanProvider } from './src/context/LoanContext';
+import Login from './src/pages/Login';
+import Home from './src/pages/Home';
+import LoanOverview from './src/pages/LoanOverview';
+import Planner from './src/pages/Planner';
+import Simulator from './src/pages/Simulator';
+import UpdatedSchedule from './src/pages/UpdatedSchedule';
+import ReminderSettings from './src/pages/ReminderSettings';
 
 function App() {
   return (
